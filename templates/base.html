@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Справочник по языкам программирования{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="{% url 'home' %}" class="logo">
+                    <h1>💻 CodeGuide</h1>
+                </a>
+                <ul>
+                    <li><a href="{% url 'home' %}">🏠 Главная</a></li>
+                    <li><a href="{% url 'popular_languages' %}">🔥 Популярные</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="{% url 'home' %}">Все языки программирования</a></li>
+                    <li><a href="{% url 'popular_languages' %}">Самые популярные языки</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Справочник по языкам программирования</p>
+        </div>
+    </footer>
+</body>
+</html>

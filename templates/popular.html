@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Популярные языки программирования 2025{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>🔥 Топ языков программирования</h1>
+    <p>Самые востребованные и перспективные языки в 2025 году</p>
+</div>
+
+<div class="popular-languages">
+    {% for language in popular_languages %}
+    <div class="popular-card">
+        <a href="{% url 'language_detail' language.id %}">
+            <span class="badge">#{{ forloop.counter }}</span>
+            {% if language.logo %}
+            <img src="{{ language.logo.url }}" alt="{{ language.name }}" loading="lazy">
+            {% endif %}
+            <h3>{{ language.name }}</h3>
+            <div class="language-meta">
+                <p class="year">📅 {{ language.year_created }} год</p>
+                <p class="usage">{{ language.main_usage|truncatewords:15 }}</p>
+            </div>
+        </a>
+    </div>
+    {% empty %}
+    <div class="empty-state">
+        <p>Популярные языки ещё не добавлены. Отметьте языки как "популярные" в админ-панели.</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="info-note">
+    <p>💡 <strong>Примечание:</strong> Популярность определяется на основе текущих трендов рынка,
+    сообщества разработчиков и востребованности в индустрии.</p>
+</div>
+{% endblock %}

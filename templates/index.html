@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - Справочник языков программирования{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Языки программирования</h1>
+    <p>Изучите особенности и возможности современных языков программирования</p>
+</div>
+
+<div class="languages-grid">
+    {% for language in languages %}
+    <div class="language-card">
+        <a href="{% url 'language_detail' language.id %}">
+            {% if language.logo %}
+            <img src="{{ language.logo.url }}" alt="{{ language.name }}" loading="lazy">
+            {% else %}
+            <div class="placeholder-logo">💻</div>
+            {% endif %}
+            <h3>{{ language.name }}</h3>
+            <p class="year-info">Создан в {{ language.year_created }} году</p>
+        </a>
+    </div>
+    {% empty %}
+    <div class="empty-state">
+        <p>Пока нет языков в базе данных. Добавьте их через админ-панель.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
