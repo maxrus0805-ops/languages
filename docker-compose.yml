@@ -16,4 +16,4 @@ services:
       DJANGO_ALLOWED_HOSTS: "*"
 
 volumes:
-  sqlite_data:  # том для SQLite базы данных
+  sqlite_data:

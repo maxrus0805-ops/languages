@@ -33,7 +33,7 @@
 
 # 1. Клонировать репозиторий
 git clone https://github.com/maxrus0805-ops/languages.git
-cd languages
+ cd django_languages_guide
 
 # 2. Запустить проект
 docker-compose up --build
